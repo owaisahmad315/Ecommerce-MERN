@@ -18,6 +18,7 @@ import ShoppingListing from './pages/shopping-view/listing';
 import ShoppingAccount from './pages/shopping-view/account';
 
 import CheckAuth from './components/common/check-auth';
+import UnAuthPage from './pages/un-auth-page';
 
 
 
@@ -25,13 +26,11 @@ function App() {
   
 
   const isAuthenticated = false;
-  const user = null;
+  const user =  null;
+  
   return (
     <>
       <div  className="flex flex-col overflow-hidden bg-white">
-        <h1>Header Component</h1>
-
-
         <Routes>
           <Route path='/auth' element={
             <CheckAuth isAuthenticated={isAuthenticated} user ={ user}>
@@ -58,14 +57,15 @@ function App() {
              <ShoppingLayout />          
            </CheckAuth >
           }>
-            <Route path='*' element={<NotFound/>}/>
+            
             <Route path='checkout' element={<ShoppingCheckout/>}/>
             <Route path='home' element={<ShoppingHome/>}/>
             <Route path='listing' element={<ShoppingListing/>}/>
             <Route path='account' element={<ShoppingAccount/>}/>
-
           </Route>
-
+          
+          <Route path='/unauth-page' element={<UnAuthPage/>}/>
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
       </div>
     </>
