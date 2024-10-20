@@ -7,9 +7,6 @@ cloudinary.config({
   api_secret: "904gtSMGS-71C_9jx8U_7FiHGus",
 });
 
-
-
-
 const storage = new multer.memoryStorage();
 
 async function imageUploadUtil(file) {
@@ -19,9 +16,6 @@ async function imageUploadUtil(file) {
 
   return result;
 }
-
-
-
 
 const upload = multer({ storage });
 

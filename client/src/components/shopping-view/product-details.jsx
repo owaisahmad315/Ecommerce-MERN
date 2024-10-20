@@ -19,7 +19,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { cartItems } = useSelector((state) => state.shopCart);
-  //const { reviews } = useSelector((state) => state.shopReview);
+  const { reviews } = useSelector((state) => state.shopReview);
 
   const { toast } = useToast();
 
@@ -96,13 +96,13 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     if (productDetails !== null) dispatch(getReviews(productDetails?._id));
   }, [productDetails]);
 
-  //console.log(reviews, "reviews");
+  console.log(reviews, "reviews");
 
-//   const averageReview =
-//     reviews && reviews.length > 0
-//       ? reviews.reduce((sum, reviewItem) => sum + reviewItem.reviewValue, 0) /
-//         reviews.length
-//       : 0;
+  const averageReview =
+    reviews && reviews.length > 0
+      ? reviews.reduce((sum, reviewItem) => sum + reviewItem.reviewValue, 0) /
+        reviews.length
+      : 0;
 
   return (
     <Dialog open={open} onOpenChange={handleDialogClose}>
@@ -139,10 +139,10 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
           </div>
           <div className="flex items-center gap-2 mt-2">
             <div className="flex items-center gap-0.5">
-              {/* <StarRatingComponent rating={averageReview} /> */}
+              <StarRatingComponent rating={averageReview} />
             </div>
             <span className="text-muted-foreground">
-              {/* ({averageReview.toFixed(2)}) */}
+              ({averageReview.toFixed(2)})
             </span>
           </div>
           <div className="mt-5 mb-5">
@@ -167,7 +167,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
           <Separator />
           <div className="max-h-[300px] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Reviews</h2>
-            {/* <div className="grid gap-6">
+            <div className="grid gap-6">
               {reviews && reviews.length > 0 ? (
                 reviews.map((reviewItem) => (
                   <div className="flex gap-4">
@@ -192,7 +192,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
               ) : (
                 <h1>No Reviews</h1>
               )}
-            </div> */}
+            </div>
             <div className="mt-10 flex-col flex gap-2">
               <Label>Write a review</Label>
               <div className="flex gap-1">

@@ -63,8 +63,8 @@ const addProduct = async (req, res) => {
   }
 };
 
-// //fetch all products
- 
+//fetch all products
+
 const fetchAllProducts = async (req, res) => {
   try {
     const listOfProducts = await Product.find({});
@@ -81,7 +81,7 @@ const fetchAllProducts = async (req, res) => {
   }
 };
 
-// //edit a product
+//edit a product
 const editProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -129,7 +129,7 @@ const editProduct = async (req, res) => {
   }
 };
 
-// //delete a product
+//delete a product
 const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;

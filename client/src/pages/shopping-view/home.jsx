@@ -52,7 +52,7 @@ function ShoppingHome() {
   const { productList, productDetails } = useSelector(
     (state) => state.shopProducts
   );
- // const { featureImageList } = useSelector((state) => state.commonFeature);
+  const { featureImageList } = useSelector((state) => state.commonFeature);
 
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
 
@@ -97,13 +97,13 @@ function ShoppingHome() {
     if (productDetails !== null) setOpenDetailsDialog(true);
   }, [productDetails]);
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setCurrentSlide((prevSlide) => (prevSlide + 1) % featureImageList.length);
-  //   }, 15000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % featureImageList.length);
+    }, 15000);
 
-  //   return () => clearInterval(timer);
-  // }, [featureImageList]);
+    return () => clearInterval(timer);
+  }, [featureImageList]);
 
   useEffect(() => {
     dispatch(
@@ -122,7 +122,7 @@ function ShoppingHome() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* <div className="relative w-full h-[600px] overflow-hidden">
+      <div className="relative w-full h-[600px] overflow-hidden">
         {featureImageList && featureImageList.length > 0
           ? featureImageList.map((slide, index) => (
               <img
@@ -160,7 +160,7 @@ function ShoppingHome() {
         >
           <ChevronRightIcon className="w-4 h-4" />
         </Button>
-      </div> */}
+      </div>
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">

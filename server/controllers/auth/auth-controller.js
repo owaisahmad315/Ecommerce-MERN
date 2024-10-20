@@ -1,6 +1,3 @@
-// 2
-
-
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
@@ -40,7 +37,6 @@ const registerUser = async (req, res) => {
 
 //login
 const loginUser = async (req, res) => {
-   
   const { email, password } = req.body;
 
   try {
@@ -100,7 +96,7 @@ const logoutUser = (req, res) => {
   });
 };
 
-// //auth middleware
+//auth middleware
 const authMiddleware = async (req, res, next) => {
   const token = req.cookies.token;
   if (!token)

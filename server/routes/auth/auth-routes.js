@@ -1,10 +1,7 @@
-
-// 3
-
 const express = require("express");
 const {
   registerUser,
-   loginUser,
+  loginUser,
   logoutUser,
   authMiddleware,
 } = require("../../controllers/auth/auth-controller");
