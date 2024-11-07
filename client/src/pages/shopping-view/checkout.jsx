@@ -48,8 +48,16 @@ function ShoppingCheckout() {
       });
 
       return;
-    }
-
+    } 
+     else {
+          toast({
+           title: "Your Order is Placed is successfully",
+           variant: "Successfull",
+         })
+       
+     }
+    
+  
     const orderData = {
       userId: user?.id,
       cartId: cartItems?._id,
@@ -119,9 +127,7 @@ function ShoppingCheckout() {
           </div>
           <div className="mt-4 w-full">
             <Button onClick={handleInitiatePaypalPayment} className="w-full">
-              {isPaymentStart
-                ? "Processing Stripe Payment..."
-                : "Checkout with Stripe"}
+            Place Order
             </Button>
 
             
